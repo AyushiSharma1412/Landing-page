@@ -12,9 +12,9 @@ const Footer = () => {
               Logo
             </Typography>
             <Typography variant="body1" gutterBottom>
-              7777 West Street, Virginia Beach, VA <br />
-              23451 <br />
-              USA
+            3rd Floor, Property No. 44, Regal Building, Connaught Place <br />
+            110001 <br />
+              New Delhi, India
             </Typography>
             <Box display="flex" alignItems="center">
               <Link href="#" color="inherit" sx={{ mr: 1 }}>
