@@ -1,0 +1,51 @@
+.hero-section {
+  display: flex;
+  flex-direction: column;
+  perspective: 1000px; /* Add perspective for 3D effect */
+}
+
+.logo-container {
+  background-color: #6d31ed;
+  padding: 20px 0;
+  text-align: center;
+  overflow: hidden;
+}
+
+.logo-slide {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.logo {
+  max-height: 50px;
+  max-width: 100px;
+}
+
+/* Additional styles for slick-carousel */
+.slick-slide > div {
+  margin: 0 10px;
+}
+
+.slick-list {
+  padding: 10px 0;
+}
+
+
+
+.text-animation-container {
+  opacity: 0;
+  transform: translateY(100px);
+  animation: fadeInUpAnimation 1s ease-out forwards;
+}
+
+@keyframes fadeInUpAnimation {
+  0% {
+    opacity: 0;
+    transform: translateY(100px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

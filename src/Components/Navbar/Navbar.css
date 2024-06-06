@@ -1,0 +1,148 @@
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #fff;
+  padding: 10px 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-brand {
+  margin-left: 4rem;
+}
+
+.navbar-links {
+  display: flex;
+  gap: 5rem;
+}
+
+.navbar-link {
+  color: #333;
+  text-decoration: none;
+  margin-right: 20px;
+  font-family: sans-serif;
+  padding-bottom: 5px;
+  transition: border-bottom 0.3s;
+}
+
+.navbar-link:hover {
+  border-bottom: 3px solid #6d31ed;
+}
+
+.navbar-link.active {
+  border-bottom: 2px solid #6d31ed;
+}
+
+.navbar-actions {
+  display: flex;
+  align-items: center;
+}
+
+.navbar-button {
+  margin-left: 10px;
+  margin-right: 10px;
+  color: #fff;
+  background-color: #6d31ed;
+  border-radius: 2rem;
+}
+
+.navbar-toggle {
+  display: none;
+  cursor: pointer;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-links {
+  display: flex;
+  gap: 1rem;
+}
+
+.navbar-link {
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+.navbar-link.active {
+  color: #6D31ED;
+}
+
+.navbar-link:hover {
+  color: #6D31ED;
+}
+
+.navbar-actions {
+  display: flex;
+  align-items: center;
+}
+
+.navbar-toggle {
+  display: none;
+}
+
+
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: white;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  z-index: 1000;
+}
+
+.navbar-links {
+  display: flex;
+  gap: 15px;
+}
+
+.navbar-link {
+  cursor: pointer;
+  padding: 10px;
+  color: black;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.navbar-link:hover,
+.navbar-link.active {
+  color: #6D31ED;
+}
+
+.navbar-actions {
+  display: flex;
+  align-items: center;
+}
+
+.navbar-toggle {
+  display: none;
+}
+
+
+@media (max-width: 768px) {
+  .navbar-links {
+    display: none;
+  }
+  .navbar-actions {
+    display: none;
+  }
+  .navbar-toggle {
+    display: block;
+  }
+
+  .navbar-brand {
+    margin-left: 0rem;
+  }
+}

@@ -1,0 +1,25 @@
+/* Video Component */
+.video-component {
+    padding-top: 48px;
+    padding-bottom: 48px;
+  }
+  
+  .video-component .MuiTypography-h4 {
+    font-weight: bold;
+  }
+  
+  .video-component .MuiTypography-body1 {
+    color: #666666;
+  }
+  
+  .video-component .MuiTypography-body1 span {
+    font-weight: bold;
+  }
+  
+  .video-component iframe {
+    border: none;
+  }
+
+  .videobackground{
+    background-image: url(../../../assets/videobg.png);
+  }

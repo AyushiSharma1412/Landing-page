@@ -1,0 +1,43 @@
+/* Footer */
+footer {
+    background-color: #f5f5f5;
+    padding: 24px 0;
+  }
+  
+  footer .MuiLink-root {
+    color: #333333;
+  }
+  
+  footer .MuiLink-root:hover {
+    color: #0077ff;
+  }
+  
+  footer .MuiTextField-root {
+    background-color: #ffffff;
+  }
+  
+  footer .MuiButton-root {
+    text-transform: none;
+  }
+  
+  footer .MuiTypography-h6 {
+    font-weight: bold;
+  }
+  
+  footer .MuiTypography-body2 {
+    color: #666666;
+  }
+  
+  footer .MuiGrid-item {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  footer .MuiBox-root {
+    border-top: 1px solid #e0e0e0;
+    padding-top: 16px;
+  }
+  
+  footer .MuiTypography-root.MuiTypography-alignCenter {
+    color: #999999;
+  }
