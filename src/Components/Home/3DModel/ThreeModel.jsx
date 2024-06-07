@@ -16,7 +16,12 @@ const ThreeModel = () => {
     // Renderer setup
     const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
     renderer.outputColorSpace = THREE.SRGBColorSpace;
-    renderer.setSize(window.innerWidth * 0.3, window.innerHeight * 0.8);
+    const updateRendererSize = () => {
+      const width = mountRef.current.clientWidth;
+      const height = mountRef.current.clientHeight;
+      renderer.setSize(width, height);
+    };
+    updateRendererSize();
     renderer.setClearColor('#ffffff', 0);
     renderer.setPixelRatio(window.devicePixelRatio);
     renderer.shadowMap.enabled = true;
@@ -27,7 +32,7 @@ const ThreeModel = () => {
     const scene = new THREE.Scene();
 
     // Camera setup
-    const camera = new THREE.PerspectiveCamera(40, window.innerWidth * 0.35 / window.innerHeight * 1, 1, 1000);
+    const camera = new THREE.PerspectiveCamera(40, mountRef.current.clientWidth / mountRef.current.clientHeight, 1, 1000);
     camera.position.set(0.3, 0.3, 0.3);
 
     // Controls setup
@@ -89,16 +94,17 @@ const ThreeModel = () => {
         const action = mixer.clipAction(clip);
         action.play();
 
-
         // document.getElementById('progress-container').style.display = 'none';
       },
     );
 
     // Resize event handler
     window.addEventListener('resize', () => {
-      camera.aspect = window.innerWidth * 0.4 / window.innerHeight * 0.8;
+      const width = mountRef.current.clientWidth;
+      const height = mountRef.current.clientHeight;
+      camera.aspect = width / height;
       camera.updateProjectionMatrix();
-      renderer.setSize(window.innerWidth * 0.4, window.innerHeight * 0.8);
+      renderer.setSize(width, height);
     });
 
     // Animation loop
@@ -133,14 +139,11 @@ const ThreeModel = () => {
         mixer.uncacheRoot(mixer.getRoot());
       });
       clearTimeout(resetTimeout);
+      window.removeEventListener('resize', updateRendererSize);
     };
   }, [initialRotationDone]);
 
-  return <div ref={mountRef} />;
+  return <div ref={mountRef} style={{ width: '30vw', height: '80vh' }} />;
 };
 
 export default ThreeModel;
-
-
-
-
