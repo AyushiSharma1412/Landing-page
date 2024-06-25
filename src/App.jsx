@@ -1,16 +1,12 @@
-import React from 'react'
-import Home from './Pages/Home/Home'
-// import Navbar from './Components/Navbar/Navbar'
-import Footer from './Components/Footer/Footer'
+import React from 'react';
+import Router from './Router';
 
 const App = () => {
   return (
-    <>
-    {/* <Navbar/> */}
-     <Home/>
-     <Footer/>
-    </>
-  )
-}
+    <div>
+      <Router />
+    </div>
+  );
+};
 
-export default App
+export default App;

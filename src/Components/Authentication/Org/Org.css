@@ -1,0 +1,126 @@
+.org-container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #6D31EDFF;
+  /* color: #fff; */
+  background-size: contain;
+  /* padding: 1rem; */
+  /* overflow: hidden; Added to prevent overflow */
+}
+
+.form-wrapper {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+}
+
+.form-container {
+  max-width: 500px;
+  width: 100%;
+  background-color: white;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  border-radius: 8px;
+  padding: 2rem;
+}
+
+.form-container h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  text-align: center; /* Center align the heading */
+}
+
+.form-container p {
+  margin-bottom: 2rem;
+  text-align: center; /* Center align the paragraph */
+}
+
+.form-box {
+  display: flex;
+  flex-direction: column;
+}
+
+.org-button-container {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1rem;
+}
+
+.illustration-container {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.illustration-container img {
+  max-width: 100%;
+  height: auto;
+}
+
+@media (max-width: 1024px) {
+  .form-container {
+    padding: 1.5rem;
+  }
+  
+  .form-container h2 {
+    font-size: 1.75rem;
+  }
+  
+  .form-container p {
+    margin-bottom: 1.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .org-container {
+    flex-direction: column-reverse;
+    padding: 1rem;
+  }
+
+  .form-wrapper,
+  .illustration-container {
+    flex: none;
+    width: 100%;
+  }
+
+  .illustration-container {
+    margin-bottom: 2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .org-container {
+    justify-content: center; /* Center align in mobile view */
+    align-items: center; 
+  }
+
+  .form-container {
+    padding: 1rem;
+  }
+  
+  .form-container h2 {
+    font-size: 1.5rem;
+  }
+  
+  .form-container p {
+    margin-bottom: 1rem;
+  }
+  
+  .org-button-container {
+    flex-direction: column;
+    align-items: center; /* Center align buttons */
+  }
+  
+  .org-button-container button {
+    width: 100%;
+    margin-bottom: 0.5rem;
+  }
+  
+  .org-button-container button:last-child {
+    margin-bottom: 0;
+  }
+}

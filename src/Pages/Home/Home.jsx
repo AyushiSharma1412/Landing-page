@@ -7,6 +7,7 @@ import CustomerReviews from '../../Components/Home/CustReview/CustomerReview';
 import Pricing from '../../Components/Home/Pricing/Pricing';
 import ContactUs from '../../Components/Home/Contact/ContactUs';
 import Navbar from '../../Components/Navbar/Navbar';
+import Footer from '../../Components/Footer/Footer'
 import './Home.css';
 
 const Home = () => {
@@ -34,6 +35,7 @@ const Home = () => {
       <div id="contact">
         <ContactUs />
       </div>
+      <Footer/>
     </div>
   );
 };

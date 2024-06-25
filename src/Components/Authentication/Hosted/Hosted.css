@@ -1,0 +1,93 @@
+.hosted-container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #6D31EDFF;
+  /* padding: 1rem; */
+}
+
+.form-wrapper {
+  flex: 1;
+  padding: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  max-width: 500px;
+}
+
+.form-container {
+  width: 100%;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  border-radius: 8px;
+  padding: 2rem;
+  background-color: #fff;
+  text-align: center;
+}
+
+.form-container h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.form-container p {
+  margin-bottom: 2rem;
+}
+
+.form-box {
+  display: flex;
+  flex-direction: column;
+}
+
+.hosted-button-container {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1rem;
+}
+
+.illustration-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  max-width: 500px;
+  margin-top: 2rem;
+}
+
+.illustration-container img {
+  max-width: 100%;
+  height: auto;
+}
+
+@media (max-width: 768px) {
+  .hosted-container {
+    flex-direction: column-reverse;
+    justify-content: center;
+  }
+
+  .form-wrapper,
+  .illustration-container {
+    width: 100%;
+    max-width: none;
+    margin: 0;
+  }
+
+  .form-container {
+    padding: 1rem;
+  }
+
+  .hosted-button-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .hosted-button-container button {
+    width: 100%;
+    margin-bottom: 1rem;
+  }
+
+  .illustration-container {
+    margin-top: 2rem;
+  }
+}

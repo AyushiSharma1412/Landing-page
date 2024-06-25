@@ -9,6 +9,8 @@
 
 .navbar-brand {
   margin-left: 4rem;
+  display: flex;
+  align-items: center;
 }
 
 .navbar-links {
