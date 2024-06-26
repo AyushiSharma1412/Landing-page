@@ -25,7 +25,7 @@ function Hosted() {
       setFormData(updatedFormData);
       try {
         await saveFormDataToFirestore();
-        // window.location.href = 'https://crm.nuren.ai/';
+        window.location.href = 'https://crm.nuren.ai/';
       } catch (error) {
         console.error('Error saving form data: ', error);
       }
