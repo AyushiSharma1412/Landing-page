@@ -1,0 +1,58 @@
+.ripple-animation-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 9999;
+    pointer-events: none; /* Make sure the animation doesn't block interactions */
+    overflow: hidden; /* Hide overflow to ensure ripples don't appear outside the viewport */
+}
+
+.ripple-animation {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    animation: ripple 1.5s ease-out forwards;
+}
+
+@keyframes ripple {
+    0% {
+        transform: scale(0);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(1.5);
+        opacity: 0.5;
+    }
+    100% {
+        transform: scale(3);
+        opacity: 0;
+    }
+}
+
+/* Additional ripple layers */
+.ripple-animation::before,
+.ripple-animation::after {
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background-color: rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    animation: ripple 1.5s ease-out forwards;
+}
+
+.ripple-animation::before {
+    animation-delay: 0.1s;
+    background-color: rgba(255, 0, 0, 0.3);
+}
+
+.ripple-animation::after {
+    animation-delay: 0.2s;
+    background-color: rgba(0, 0, 255, 0.3);
+}

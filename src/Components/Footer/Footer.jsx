@@ -1,6 +1,7 @@
 import React from 'react';
 import { Box, Container, Grid, Link, Typography } from '@mui/material';
 import { Twitter, Facebook, LinkedIn } from '@mui/icons-material';
+import nurenailogo from "../../assets/nurenailogo.png"
 
 const Footer = () => {
   return (
@@ -9,7 +10,7 @@ const Footer = () => {
         <Grid container spacing={4}>
           <Grid item xs={12} sm={3}>
             <Typography variant="h6" gutterBottom>
-              Logo
+              <img style={{height:'50%', width:'50%'}} src={nurenailogo} alt="" />
             </Typography>
             <Typography variant="body1" gutterBottom>
             3rd Floor, Property No. 44, Regal Building, Connaught Place <br />
