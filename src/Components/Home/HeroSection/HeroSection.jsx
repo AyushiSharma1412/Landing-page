@@ -17,7 +17,7 @@ import AV3 from '../../../assets/AV3.png';
 import ThreeModel from '../3DModel/ThreeModel';
 
 const HeroSection = () => {
-  const isSmallScreen = useMediaQuery('(max-width:600px)');
+  const isSmallScreen = useMediaQuery('(max-width:900px)');
 
   const handleViewDemoClick = () => {
     const featuresSection = document.getElementById('features');
