@@ -4,6 +4,7 @@ import hostedImage from '../../../assets/hostedImage.png';
 import { TextField, Select, MenuItem, Button, Box, FormControl, InputLabel } from '@mui/material';
 import Navbar2 from '../../Navbar2/Navbar2';
 import { useForm } from '../../../FormContext';
+import { trackEvent } from '../../../Ga'; // Import the trackEvent function
 
 function Hosted() {
   const [location, setLocation] = useState('');
@@ -25,7 +26,9 @@ function Hosted() {
       setFormData(updatedFormData);
       try {
         await saveFormDataToFirestore();
-        // window.location.href = 'https://crm.nuren.ai/';
+        // Track form submission event
+        trackEvent('HostedForm', 'Form Submit', 'Form Submitted Successfully');
+        window.location.href = 'https://crm.nuren.ai/';
       } catch (error) {
         console.error('Error saving form data: ', error);
       }
@@ -97,6 +100,8 @@ function Hosted() {
                 color="primary"
                 style={{ marginTop: '1rem', marginRight: '1rem', width: '10rem', borderColor: 'black', color: 'black', borderRadius: '20px' }}
                 onClick={() => {
+                  // Track 'Skip for now' button click event
+                  trackEvent('HostedForm', 'Skip Button Click', 'User Skipped for Now');
                   window.location.href = 'https://crm.nuren.ai/';
                 }}
               >

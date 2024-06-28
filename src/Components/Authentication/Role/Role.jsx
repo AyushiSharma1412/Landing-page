@@ -5,6 +5,7 @@ import { Select, MenuItem, Button, Box, FormControl, InputLabel } from '@mui/mat
 import { useNavigate } from 'react-router-dom';
 import { useForm } from '../../../FormContext';
 import Navbar2 from '../../Navbar2/Navbar2';
+import { trackEvent } from '../../../Ga'; // Import the trackEvent function
 
 function Role() {
   const [jobRole, setJobRole] = useState('');
@@ -21,6 +22,9 @@ function Role() {
       setRoleError(false);
       setFormData({ ...formData, jobRole });
       navigate('/strength');
+
+      // Track form submission event
+      trackEvent('RoleForm', 'Form Submit', 'Form Submitted Successfully');
     }
   };
 
@@ -67,7 +71,11 @@ function Role() {
                 variant="outlined"
                 color="primary"
                 style={{ borderRadius: '20px', marginTop: '1rem', marginRight: '1rem', width: '10rem', borderColor: 'black', color: 'black' }}
-                onClick={() => navigate('/strength')}
+                onClick={() => {
+                  // Track 'Skip for Now' button click event
+                  trackEvent('RoleForm', 'Skip Button Click', 'User Skipped for Now');
+                  navigate('/strength');
+                }}
               >
                 Skip for now
               </Button>

@@ -21,7 +21,7 @@
   .billing-toggle {
     margin-top: 2rem;
     transition: background-color 0.3s ease;
-    box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.22);
+    /* box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.22); */
     width: 12%;
     position: relative;
     left: 43%;
@@ -131,6 +131,7 @@
     .discount-price {
     font-size: 0.8rem;
     }
+  
     li {
     font-size: 0.9rem;
     }

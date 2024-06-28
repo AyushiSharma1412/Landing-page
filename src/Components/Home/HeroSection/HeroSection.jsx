@@ -22,6 +22,11 @@ const HeroSection = () => {
   const handleViewDemoClick = () => {
     const featuresSection = document.getElementById('features');
     featuresSection.scrollIntoView({ behavior: 'smooth' });
+    // Track view demo button click event
+    window.gtag('event', 'view_demo_clicked', {
+      event_category: 'engagement',
+      event_label: 'View Demo Button Clicked',
+    });
   };
   
   const settings = {
@@ -64,20 +69,40 @@ const HeroSection = () => {
     { src: canva, alt: 'Canva' },
   ];
 
+  const trackLogoCarouselClick = (index) => {
+    // Track carousel logo click event
+    window.gtag('event', 'carousel_logo_clicked', {
+      event_category: 'engagement',
+      event_label: `Logo ${index + 1} Clicked`,
+    });
+  };
+
   return (
     <div className="hero-section">
       <div className='hero-subsection'>
         <Grid container spacing={10} alignItems='center' justifyContent='center' sx={{ py: 1, height: '80vh'}}>
           <Grid item xs={12} md={6} textAlign={isSmallScreen ? 'center' : 'left'} className="text-animation-container">
             <Typography variant="h2" gutterBottom style={{ fontSize: '45px', fontWeight: '700' }}>
-            Revolutionize Your Customer Relationships
+              Revolutionize Your Customer Relationships
             </Typography>
             <Typography variant="body1" gutterBottom style={{ width: isSmallScreen ? 'auto' : '30rem', marginTop: '2rem', marginBottom: '2rem' }}>
-            Unlock the power of AI to boost productivity, automate processes, and deliver personalized experiences.            </Typography>
+              Unlock the power of AI to boost productivity, automate processes, and deliver personalized experiences.
+            </Typography>
             <Grid container spacing={2} justifyContent={isSmallScreen ? 'center' : 'flex-start'}>
               <Grid item>
-                <Button variant="contained" sx={{ borderRadius: 10, backgroundColor: '#6D31ED' }}startIcon={<EastIcon />}>
-                 Get started
+                <Button
+                  variant="contained"
+                  sx={{ borderRadius: 10, backgroundColor: '#6D31ED' }}
+                  startIcon={<EastIcon />}
+                  onClick={() => {
+                    // Track get started button click event
+                    window.gtag('event', 'get_started_clicked', {
+                      event_category: 'engagement',
+                      event_label: 'Get Started Button Clicked',
+                    });
+                  }}
+                >
+                  Get started
                 </Button>
               </Grid>
               <Grid item>
@@ -114,7 +139,7 @@ const HeroSection = () => {
       <div className="logo-container">
         <Slider {...settings}>
           {logos.map((logo, index) => (
-            <div key={index} className="logo-slide">
+            <div key={index} className="logo-slide" onClick={() => trackLogoCarouselClick(index)}>
               <img src={logo.src} alt={logo.alt} className="logo" />
             </div>
           ))}
@@ -125,6 +150,3 @@ const HeroSection = () => {
 };
 
 export default HeroSection;
-
-
-
