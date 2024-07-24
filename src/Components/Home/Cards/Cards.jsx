@@ -7,6 +7,7 @@ import BookIcon from '@mui/icons-material/Book';
 import AssessmentIcon from '@mui/icons-material/Assessment';
 import IntegrationInstructionsIcon from '@mui/icons-material/IntegrationInstructions';
 import PersonIcon from '@mui/icons-material/Person';
+import { trackEvent } from '../../../Ga'; // Import the tracking function
 
 const Cards = () => {
   const cardData = [
@@ -48,6 +49,14 @@ const Cards = () => {
     },
   ];
 
+  const handleCardClick = (title) => {
+    trackEvent('Card', 'Click', title);
+  };
+
+  const handleLearnMoreClick = (title) => {
+    trackEvent('Card', 'Learn More', title);
+  };
+
   return (
     <div className="cards-container">
       <Typography variant="h5" gutterBottom>
@@ -58,7 +67,7 @@ const Cards = () => {
       </Typography>
       <div className="cards-grid">
         {cardData.map((card, index) => (
-          <div key={index} className="card">
+          <div key={index} className="card" onClick={() => handleCardClick(card.title)}>
             <div className="card-top" style={{ backgroundColor: card.color }}></div>
             <div className="card-content">
               {card.icon}
@@ -69,7 +78,14 @@ const Cards = () => {
             <Typography variant="body1" gutterBottom>
               {card.description}
             </Typography>
-            <Typography variant="body2" color="primary">
+            <Typography 
+              variant="body2" 
+              color="primary" 
+              onClick={(e) => { 
+                e.stopPropagation(); 
+                handleLearnMoreClick(card.title); 
+              }}
+            >
               Learn more →
             </Typography>
           </div>

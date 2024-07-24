@@ -1,11 +1,20 @@
 import React from 'react';
-import { Typography, Avatar, Rating, Card, CardContent, Box, Chip } from '@mui/material';
+import { Typography, Avatar, Rating, Card, Box, Chip } from '@mui/material';
 import { useMediaQuery, useTheme } from '@mui/material';
 import person from '../../../assets/person.png';
+import { trackEvent } from '../../../Ga'; // Import the trackEvent function from your GA setup
 
 const Reviews = () => {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
+
+  const handleReadReviewsClick = () => {
+    // Track event when 'Read the full reviews' is clicked
+    trackEvent('Reviews', 'Read Reviews Click');
+    
+    // Add your redirection logic here
+    window.location.href = 'https://your-redirect-url.com'; // Replace with your actual URL
+  };
 
   return (
     <div style={{ textAlign: 'center' }}>
@@ -76,7 +85,7 @@ const Reviews = () => {
             gutterBottom
             sx={{ fontStyle: 'italic', fontWeight: 'bold', mb: 2 }}
           >
-This CRM is a game-changer for our business. Intuitive interface, powerful automation, and top-notch support. Highly recommend
+            This CRM is a game-changer for our business. Intuitive interface, powerful automation, and top-notch support. Highly recommend.
           </Typography>
           <Typography
             variant="body1"
@@ -90,7 +99,7 @@ This CRM is a game-changer for our business. Intuitive interface, powerful autom
             gutterBottom
             sx={{ fontWeight: 'bold', color: 'text.primary' }}
           >
-            -Grace Nelson, COO at TravelWise
+            - Grace Nelson, COO at TravelWise
           </Typography>
           <Rating
             name="rating"
@@ -103,6 +112,7 @@ This CRM is a game-changer for our business. Intuitive interface, powerful autom
           <Typography
             variant="body2"
             sx={{ fontWeight: 'bold', color: 'primary.main', cursor: 'pointer' }}
+            onClick={handleReadReviewsClick}
           >
             Read the full reviews
           </Typography>

@@ -5,6 +5,7 @@ import { TextField, Select, MenuItem, Button, Box, FormControl, InputLabel } fro
 import { useNavigate } from 'react-router-dom';
 import { useForm } from '../../../FormContext';
 import Navbar2 from '../../Navbar2/Navbar2';
+import { trackEvent } from '../../../Ga'; // Import the trackEvent function
 
 function Org() {
   const [organizationName, setOrganizationName] = useState('');
@@ -36,6 +37,9 @@ function Org() {
     if (valid) {
       setFormData({ ...formData, organizationName, industryType });
       navigate('/role');
+
+      // Track form submission event
+      trackEvent('OrgForm', 'Form Submit', 'Form Submitted Successfully');
     }
   };
 
@@ -93,7 +97,11 @@ function Org() {
                 variant="outlined"
                 color="primary"
                 style={{ marginTop: '1rem', marginRight: '1rem', borderRadius: '20px', width: '10rem', borderColor: 'black', color: 'black' }}
-                onClick={() => navigate('/role')}
+                onClick={() => {
+                  // Track 'Skip for Now' button click event
+                  trackEvent('OrgForm', 'Skip Button Click', 'User Skipped for Now');
+                  navigate('/role');
+                }}
               >
                 Skip for Now
               </Button>

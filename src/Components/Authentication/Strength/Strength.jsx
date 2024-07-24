@@ -5,6 +5,7 @@ import { Button, ButtonGroup, TextField, Box } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 import { useForm } from '../../../FormContext';
 import Navbar2 from '../../Navbar2/Navbar2';
+import { trackEvent } from '../../../Ga'; // Import the trackEvent function
 
 function Strength() {
   const [teamSize, setTeamSize] = useState('');
@@ -15,19 +16,22 @@ function Strength() {
   const { formData, setFormData } = useForm();
   const navigate = useNavigate();
 
-  
   const handleTeamSizeChange = (size) => {
     setTeamSize(size);
     setShowInput(false);
     setManualInput('');
     setInputError(false);
     setErrorMessage('');
+    // Track team size selection
+    trackEvent('StrengthForm', 'Team Size Selection', `Selected ${size}`);
   };
+
   const handleManualInput = (e) => {
     setManualInput(e.target.value);
     setInputError(false);
     setErrorMessage('');
   };
+
   const handleSubmit = (e) => {
     e.preventDefault();
     let strengthValue = teamSize;
@@ -49,6 +53,8 @@ function Strength() {
     if (strengthValue) {
       setFormData({ ...formData, teamStrength: strengthValue });
       navigate('/hosted');
+      // Track form submission event
+      trackEvent('StrengthForm', 'Form Submit', 'Form Submitted Successfully');
     } else {
       setInputError(true);
       setErrorMessage('Please enter team strength.');
@@ -131,7 +137,11 @@ function Strength() {
               variant="outlined"
               color="primary"
               style={{ marginTop: '1rem', marginRight: '1rem', width: '10rem', borderColor: 'black', color: 'black', borderRadius: '20px' }}
-              onClick={() => navigate('/hosted')}
+              onClick={() => {
+                // Track 'Skip for Now' button click event
+                trackEvent('StrengthForm', 'Skip Button Click', 'User Skipped for Now');
+                navigate('/hosted');
+              }}
             >
               Skip for now
             </Button>

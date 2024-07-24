@@ -1,12 +1,23 @@
 import React, { useState } from 'react';
 import './Pricing.css';
 import { Button, Typography } from '@mui/material';
+import { trackEvent } from '../../../Ga';
 
 const Pricing = () => {
   const [isMonthly, setIsMonthly] = useState(false);
 
   const handleToggleClick = (isMonthly) => {
     setIsMonthly(isMonthly);
+
+    // Track toggle click event
+    trackEvent('Pricing', 'Toggle Click', isMonthly ? 'Monthly' : 'Annual');
+  };
+
+  const handleGetStartedClick = (planName, planType) => {
+    // Track get started button click event
+    trackEvent('Pricing', 'Get Started Click', `${planName} (${planType})`);
+    
+    // Perform any other actions related to get started click
   };
 
   return (
@@ -26,6 +37,7 @@ const Pricing = () => {
             background: '#62CD14',
             marginRight: '1rem',
           }}
+          onClick={() => handleGetStartedClick('Free Trial', '1-month')}
         >
           Get 1-month free trial
         </Button>
@@ -37,6 +49,7 @@ const Pricing = () => {
             borderColor: '#62CD14',
             color: '#62CD14',
           }}
+          onClick={() => handleGetStartedClick('Talk to Sales', 'Contact')}
         >
           Talk to Sales
         </Button>
